@@ -6,19 +6,9 @@
 int* shuffle(int* nums, int numsSize, int n, int* returnSize){
     *returnSize = numsSize;
     int* ans = (int*)malloc(sizeof(int) * (*returnSize));
-    ans[0] = nums[0];
-    int i = 1,j = n,k=1;
-    while(i<numsSize){
-        if(i%2 != 0 ){
-            ans[i] = nums[j];
-            j++;
-        }
-        else
-        {
-            ans[i] = nums[k];
-            k++;
-        }
-        i++;
+    for(int i = 0 ; i< n ; i++){
+        ans[i * 2 ] = nums[i];
+        ans[2*i +1] = nums[i+n];
     }
     return ans;
 }
