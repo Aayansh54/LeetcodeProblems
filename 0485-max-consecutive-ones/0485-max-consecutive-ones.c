@@ -4,15 +4,12 @@ int findMaxConsecutiveOnes(int* nums, int numsSize) {
         if(nums[i] == 1 )
         {
             cnt++;
+            if(cnt > max){
+                max = cnt;
+            }
         }
-        else if(nums[i] == 0)
-        {
-            if(cnt>max)
-            max = cnt;
-            cnt = 0;
-        }
-        if(cnt>max)
-        max = cnt;
+        else
+        cnt = 0;
     }
     return max;
 }
