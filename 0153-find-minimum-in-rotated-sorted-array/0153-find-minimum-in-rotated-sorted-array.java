@@ -1,6 +1,6 @@
 class Solution {
     public int findMin(int[] nums) {
-        int min = 5000;
+        int min = Integer.MAX_VALUE;
         int n = nums.length;
         int left = 0 ;
         int right = n - 1;
