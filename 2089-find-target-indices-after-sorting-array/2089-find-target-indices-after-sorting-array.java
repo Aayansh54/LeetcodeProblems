@@ -1,13 +1,13 @@
-import java.util.ArrayList;
 class Solution {
     public List<Integer> targetIndices(int[] nums, int target) {
-        int n = nums.length;
-        Arrays.sort(nums);
         ArrayList<Integer> ans = new ArrayList<>();
-        for(int i = 0 ; i < n ; i++){
-            if(nums[i] == target){
-                ans.add(i);
-            }
+        int count = 0 , lessthancnt = 0;
+        for(int x : nums){
+            if(target == x) count++;
+            if(x < target) lessthancnt++;
+        }
+        for(int i = 0 ; i < count ; i++){
+            ans.add(lessthancnt++);
         }
         return ans;
     }
