@@ -2,7 +2,6 @@ import java.util.HashSet;
 class Solution {
     public int missingMultiple(int[] nums, int k) {
         HashSet<Integer> set1 = new HashSet<>();
-        //HashSet<Integer> set2 = new HashSet<>();
         int max = 0;
         for(int x : nums){
            if(x % k == 0) {
