@@ -7,11 +7,11 @@ class Solution {
             int mid = (left + right )/2;
             long leftel = index;
             long consecNums =Math.min(leftel, mid - 1);
-            long dupOne = Math.max(0, leftel - consecNums);
+            long dupOne = leftel - consecNums;
             long leftsum = (consecNums * mid) - (consecNums * (consecNums+1)/2) + dupOne;
             long rightel = n - index - 1;
             long consecNumsR = Math.min(rightel , mid-1);
-            long dupOneR = Math.max(0, rightel - consecNumsR);
+            long dupOneR = rightel - consecNumsR;
             long rightsum = (consecNumsR * mid) - (consecNumsR * (consecNumsR+1)/2) + dupOneR;
             long totalsum = leftsum + rightsum + mid;
             if(totalsum <= maxSum){
