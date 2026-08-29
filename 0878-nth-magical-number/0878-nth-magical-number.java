@@ -1,25 +1,27 @@
 class Solution { 
-public long lcm(int a , int b){ 
-    int lcm = 1;
-    int factor = 2;
-    while(factor <= Math.min(a,b)){
+// public long lcm(int a , int b){ 
+//     int lcm = 1;
+//     int factor = 2;
+//     while(factor <= Math.min(a,b)){
     
-    if(a % factor == 0 && b % factor == 0){
-        a/=factor;
-        b/=factor;
-        lcm *= factor;
-    }else 
-    factor++;
-  }
-  return (long)lcm * a * b;
-} 
+//     if(a % factor == 0 && b % factor == 0){
+//         a/=factor;
+//         b/=factor;
+//         lcm *= factor;
+//     }else 
+//     factor++;
+//   }
+//   return (long)lcm * a * b;
+// } 
+
+    
 
     public int nthMagicalNumber(int n, int a, int b) {
         long left = 1;
         long right = (long)n * a * b;
         long ans = 0;
         int mod = 1_000_000_007;
-        long LCM = lcm(a,b);
+        long LCM = a/gcd(a,b) * b;
         while(left <= right){
             long mid = left + (right - left) /2;
             long aDivNums = mid / a;
@@ -34,5 +36,11 @@ public long lcm(int a , int b){
                 left = mid + 1;
         }
         return (int)(ans % mod) ;
+    }
+    long gcd(int a , int b){
+        if(b == 0){
+            return a;
+        }
+        return gcd(b,a%b);
     }
 }
