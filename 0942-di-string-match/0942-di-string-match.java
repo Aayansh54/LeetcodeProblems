@@ -11,8 +11,7 @@ class Solution {
             else
             ans[k++] = j--;
         }
-        if(s.charAt(n-1) == 'I') ans[k++] = i++;
-        else ans[k++] = j--;
+        ans[k] = i;
         return ans;
     }
 }
