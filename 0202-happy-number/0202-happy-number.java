@@ -1,21 +1,14 @@
 class Solution {
     public boolean isHappy(int n) {
-        int fast = n,slow = n;
-      do {
-            slow = squareSum(slow);
-            fast = squareSum(squareSum(fast));
-            
-        }  while (fast != slow);
-        return fast == 1;
-    }
-
-    public int squareSum(int n){
+        if(n == 1 || n == 7){
+            return true;
+        }
+        else if(n<10) return false;
         int sum = 0;
-        while(n!=0){
-            int digit = n % 10;
-            sum += digit * digit;
+        while(n > 0){
+            sum += (n%10) * (n%10);
             n/=10;
         }
-        return sum;
+        return isHappy(sum);
     }
 }
