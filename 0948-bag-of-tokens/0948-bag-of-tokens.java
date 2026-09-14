@@ -5,21 +5,23 @@ class Solution {
         int i = 0;
         int j = n - 1;
         int score = 0;
+        int maxscore = 0;
         while(i <= j){
             if( power >= tokens[i]){
                 power -= tokens[i];
                 score++;
                 i++;
+                maxscore = Math.max(maxscore , score);
             }
-            else if(score >= 1 && i != j){
+            else if(score >= 1){
                 power += tokens[j];
                 j--;
                 score--;
             }
             else{
-                return score;
+                return maxscore;
             }
         }
-        return score;
+        return maxscore;
     }
 }
