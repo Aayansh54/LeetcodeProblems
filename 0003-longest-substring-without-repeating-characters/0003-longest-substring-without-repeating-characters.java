@@ -8,17 +8,16 @@ class Solution {
         int right = 0;
         while(right < n){
             if(st.contains(S[right])){
-            while(st.contains(S[right])){
                 st.remove(S[left]);
                 left++;
             }
-            }
             else{
                 st.add(S[right]);
-                right++;
                 max = Math.max(max,st.size());
+                right++;
             }
         }
+        
         return max;
     }
 }
