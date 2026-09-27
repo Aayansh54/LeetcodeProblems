@@ -31,13 +31,15 @@ class Solution {
 
         while(r < n){
             subfreq[S[r] -'a']++;
-            subfreq[S[l++] -'a']--;
-
+            subfreq[S[l] -'a']--;
+                
+                l++;
+                r++;
+                
             if(Arrays.equals(subfreq,Pfreq)) {
                 ans.add(l);
             }
-
-            r++;
+              
         }
         return ans;
     }
