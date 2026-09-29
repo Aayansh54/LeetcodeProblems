@@ -1,22 +1,21 @@
 class Solution {
     public int numberOfSubstrings(String s) {
-        int l = 0 , r = 0;
-        Map<Character , Integer> mp = new HashMap<>();
-        int count = 0;
-        int n = s.length();
-        while(r < n){        
-            mp.put(s.charAt(r) , mp.getOrDefault(s.charAt(r),0) + 1);
-            while(mp.containsKey('a') && mp.containsKey('b') && mp.containsKey('c')){
-                count += n - r;
-                if(mp.get(s.charAt(l)) == 1){
-                    mp.remove(s.charAt(l));
-                }else{
-                    mp.put(s.charAt(l),mp.get(s.charAt(l)) - 1);
-                }
+        char[] S = s.toCharArray();
+        char[] freq = new char[26];
+
+        int l = 0;
+        int r = 0;
+        int n = S.length;
+        int ans  = 0;
+        while(r < n){
+            freq[S[r] -'a']++;
+            while(freq[0] > 0 && freq[1] > 0 && freq[2] > 0){
+                ans += n - r;
+                freq[S[l] - 'a']--;
                 l++;
             }
             r++;
         }
-        return count;
+        return ans;
     }
 }
