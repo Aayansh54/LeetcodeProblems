@@ -26,9 +26,9 @@ class Solution {
                 sMap.put(s.charAt(r), sMap.getOrDefault(s.charAt(r), 0) + 1);
             }
             while (tCount == T) {
-                if (s.substring(l, r + 1).length() < minLen) {
+                if (r - l + 1 < minLen) {
                     ans = s.substring(l, r + 1);
-                    minLen = s.substring(l, r + 1).length();
+                    minLen = r - l + 1;
                 }
                 char c = s.charAt(l);
 
