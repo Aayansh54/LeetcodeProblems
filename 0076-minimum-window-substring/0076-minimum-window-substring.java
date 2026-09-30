@@ -30,17 +30,16 @@ class Solution {
                     ans = s.substring(l, r + 1);
                     minLen = r - l + 1;
                 }
-                char c = s.charAt(l);
 
-                if (tMap.containsKey(c)) {
-                    sMap.put(c, sMap.get(c) - 1);
+                if (tMap.containsKey(s.charAt(l))) {
+                    sMap.put(s.charAt(l), sMap.get(s.charAt(l)) - 1);
 
-                    if (sMap.get(c) < tMap.get(c)) {
+                    if (sMap.get(s.charAt(l)) < tMap.get(s.charAt(l))) {
                         tCount--;
                     }
 
-                    if (sMap.get(c) == 0) {
-                        sMap.remove(c);
+                    if (sMap.get(s.charAt(l)) == 0) {
+                        sMap.remove(s.charAt(l));
                     }
                 }
 
