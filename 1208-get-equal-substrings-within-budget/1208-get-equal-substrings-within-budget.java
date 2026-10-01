@@ -10,7 +10,7 @@ class Solution {
 
         while (r < n) {
             cost += Math.abs(s.charAt(r) - t.charAt(r));
-            while (l <= r && cost > maxCost) {
+            while (cost > maxCost) {
                 cost -= Math.abs(s.charAt(l) - t.charAt(l));
                 l++;
             }
