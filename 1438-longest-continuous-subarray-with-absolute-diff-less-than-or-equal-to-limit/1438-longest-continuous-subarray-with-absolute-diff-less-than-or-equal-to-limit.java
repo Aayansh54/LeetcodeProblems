@@ -11,15 +11,15 @@ class Solution {
             while(!mind.isEmpty() && nums[r] < mind.peekLast()) mind.pollLast();
             maxd.add(nums[r]);
             mind.add(nums[r]);
-            if(maxd.peek() - mind.peek() > limit){
+            while(maxd.peek() - mind.peek() > limit){
                 if (maxd.peek() == nums[l]) maxd.poll();
                 if (mind.peek() == nums[l]) mind.poll();
                 l++;
-                r++;
-            }else{
+                
+            }
                 ans = Math.max(ans,r-l+1);
                 r++;
-            }
+            
         }
         return ans;
     }
