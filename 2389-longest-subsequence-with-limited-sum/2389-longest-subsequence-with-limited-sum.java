@@ -4,31 +4,39 @@ class Solution {
 
         int n = nums.length;
         int m = queries.length;
+
+        int[] prefix = new int[n];
+        prefix[0] = nums[0];
+        for(int i = 1 ; i < n; i++) {
+            prefix[i] = prefix[i-1] + nums[i];
+        }
         int[] ans = new int[m];
 
         
 
-        long totSum = 0;
-        for(int x : nums){
-            totSum += x;
-        }
-
+   
         int j = 0;
         for(int q : queries){
-
-            int maxLen = 0;
-            
-            long sum = totSum;
-            
-            int idx = n-1;
-            
-            while(sum > q){
-                sum -= nums[idx--];
-
-            }
-            maxLen = Math.max(maxLen,idx+1);
-            ans[j++] = maxLen;
+            ans[j++] = binSearch(prefix,q);
         }
+
         return ans;
+    }
+    int binSearch(int[] prefix,int q){
+        int left = 0;
+        int right = prefix.length -1;
+        
+        while(left <= right){
+            int mid = (left + right)/2;
+            if(prefix[mid] <= q){
+                left = mid + 1;
+            }else{
+                
+                right = mid -1;
+            }
+        
+        
+        }
+        return left;
     }
 }
